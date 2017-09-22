@@ -8,7 +8,7 @@
         <strong>{{new_tournament.errors}}</strong>
 {% endif %}
 
-<form class="form-horizontal" action="{% url new_tournament %}" role="form" method="post">
+<form class="form-horizontal" action="{% url 'new_tournament' %}" role="form" method="post">
   {% csrf_token %}
 <div class="form-group">
       <label for="name" class="col-sm-1 control-label">Name</label>

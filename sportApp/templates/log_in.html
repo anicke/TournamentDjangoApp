@@ -14,7 +14,7 @@
     <p>This is only necessary for administrators.</p>
 </div>
 {% endif %}
-<form action="{% url log_in %}" role="form" method="post" style="margin-right:50%">
+<form action="{% url 'log_in' %}" role="form" method="post" style="margin-right:50%">
       {% csrf_token %}
       <div class="form-group">
       <label for="username" class="col-sm-2 control-label">User name:</label>

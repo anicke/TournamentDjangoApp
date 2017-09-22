@@ -39,7 +39,7 @@
 {%if current_tournaments%}
 <h3>Current tournaments</h3>
 {% for tournament in current_tournaments %}
-<a href="{% url show_tournament_data tournament.id player_data.current_division.id%}">{{tournament}} - {{player_data.current_division}}</a><br>
+<a href="{% url 'show_tournament_data' tournament.id player_data.current_division.id%}">{{tournament}} - {{player_data.current_division}}</a><br>
 {% endfor%}
 {% endif %}
 

@@ -14,7 +14,7 @@ $( document ).ready(function() {
 
 {% load custom_tags %}
 
-<form action="{% url show_tournament_data tournament_id division_id %}" method="post" id="division_select">{% csrf_token %}
+<form action="{% url 'show_tournament_data' tournament_id division_id %}" method="post" id="division_select">{% csrf_token %}
 Select division: {{division_select.name}}
 </form>
 
@@ -81,7 +81,7 @@ Select division: {{division_select.name}}
             {% for match in games.list %}
                 <li>{{match.home_player.name}} - {{match.away_player.name}} : {{match.final_standing}}
                 {% if user.is_authenticated %}
-                    <a href="{% url home %}admin/sportApp/game/{{match.id}}"> - Admin</a>{% endif%}
+                    <a href="{% url 'home' %}admin/sportApp/game/{{match.id}}"> - Admin</a>{% endif%}
                 </li>
             {% endfor %}
             </ul>
@@ -97,7 +97,7 @@ Select division: {{division_select.name}}
 <h2>Data for "{{current_tournament.name}}" - All divisions</h2>
 
     {% for division, table in all_tables%}
-        <h2><a href="{% url show_tournament_data current_tournament.id division.id%}">{{division.name}}</a></h2>
+        <h2><a href="{% url 'show_tournament_data' current_tournament.id division.id%}">{{division.name}}</a></h2>
         <table class="table table-striped table-condensed">
         <tr><th class="col-md-4">Name</th>
             <th title="Games Played" class="col-md-1">P</th>
@@ -109,7 +109,7 @@ Select division: {{division_select.name}}
             <th title="Goal Difference" class="col-md-1">GD</th>
             <th title="Points" class="col-md-1">PTS</th></tr>
         {% for row in table%}
-        <tr><td><a href="{% url show_player_data row.id %}">{{row.name}}</a></td>
+        <tr><td><a href="{% url 'show_player_data' row.id %}">{{row.name}}</a></td>
             <td>{{row.games_played}}</td>
             <td>{{row.games_won}}</td>
             <td>{{row.games_draw}}</td>

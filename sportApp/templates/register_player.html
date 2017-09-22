@@ -4,7 +4,7 @@
 {% include "navbar.html" with active="register_player" %}
 <h3>Register a new player.</h3>
 
-<form class="form-horizontal" action="{% url register_player %}" role="form" method="post">
+<form class="form-horizontal" action="{% url 'register_player' %}" role="form" method="post">
   {% csrf_token %}
    {%if RegisterPlayerForm.errors %}
         <h4>Form validation failed:</h4>

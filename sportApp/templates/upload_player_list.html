@@ -7,7 +7,7 @@
 
 {{DivisionSelectForm.errors}}
 
-<form class="form-horizontal" action="{% url upload_player_list %}" role="form" method="post" enctype="multipart/form-data">
+<form class="form-horizontal" action="{% url 'upload_player_list' %}" role="form" method="post" enctype="multipart/form-data">
 {% csrf_token %}
 <div class="form-group">
 

@@ -33,7 +33,7 @@
 {% include "navbar.html" with active="" %}
 <h3>Edit match data for game between {{current_game.home_player.name}} and {{current_game.away_player.name}}</h3>
 
-<form class="form-horizontal" action="{% url edit_match_data current_game.id tournament_id division_id %}" role="form" method="post" autocomplete="off">
+<form class="form-horizontal" action="{% url 'edit_match_data' current_game.id tournament_id division_id %}" role="form" method="post" autocomplete="off">
   {% csrf_token %}
     {% if error_msg%}
     <h3>{{error_msg}}</h3>
@@ -42,12 +42,12 @@
 <div class="form-group">
       <div class="form-group">
         <label for="away_score" class="col-sm-2 control-label">
-            <a href="{% url show_player_data current_game.home_player.id %}" title="Show player data">{{current_game.home_player.name}}</a>'s Score</label>
+            <a href="{% url 'show_player_data' current_game.home_player.id %}" title="Show player data">{{current_game.home_player.name}}</a>'s Score</label>
                {{match_form.home_score}}
         </div>
         <div class="form-group">
                <label for="home_score" class="col-sm-2 control-label" title="Show player data">
-                    <a href="{% url show_player_data current_game.away_player.id %}" title="Show player data">{{current_game.away_player.name}}</a>s Score</label>
+                    <a href="{% url 'show_player_data' current_game.away_player.id %}" title="Show player data">{{current_game.away_player.name}}</a>s Score</label>
                 {{match_form.away_score}}
         </div>
          <div class="form-group">

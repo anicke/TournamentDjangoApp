@@ -4,7 +4,7 @@
     <strong>{{games.grouper|date:"Y-m-d"}}</strong>
     <ul>
     {% for match in games.list %}
-        <li><a href="{% url edit_match_data match.id 0 0 %}"> {{match.home_player.name}} - {{match.away_player.name}}</a></li>
+        <li><a href="{% url 'edit_match_data' match.id 0 0 %}"> {{match.home_player.name}} - {{match.away_player.name}}</a></li>
     {% endfor %}
     </ul>
     </ul>

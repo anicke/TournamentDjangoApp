@@ -8,7 +8,7 @@
 {% if active_tournaments %}
 <h2>Current Tournaments:</h2>
 {% for tournament in active_tournaments%}
-<a href="{% url show_tournament_data tournament.id 0 %}">{{tournament.name}}</a>
+<a href="{% url 'show_tournament_data' tournament.id 0 %}">{{tournament.name}}</a>
 {% endfor %}
 {% endif %}
 
@@ -16,7 +16,7 @@
 {% if old_tournaments %}
 <h2>Previous Tournaments:</h2>
 {% for tournament in old_tournaments%}
-<a href="{% url show_tournament_data tournament.id 0 %}">{{tournament.name}}</a> - Winner: {{tournament.tournament_winner.name}}
+<a href="{% url 'show_tournament_data' tournament.id 0 %}">{{tournament.name}}</a> - Winner: {{tournament.tournament_winner.name}}
 {% endfor %}
 {% endif %}
 
