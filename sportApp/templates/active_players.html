@@ -11,7 +11,7 @@ $( document ).ready(function() {
 {% block body%}
 {% include "navbar.html" with active="active_players" %}
 
-<form action="{% url active_players %}?" method="get" id="division_select">
+<form action="{% url 'active_players' %}?" method="get" id="division_select">
     {{division_select.name}}
 </form>
 
@@ -25,10 +25,10 @@ $( document ).ready(function() {
     <th class="col-md-1"></th></tr>
 {% for p in Players%}
     <tr>
-        <td><a href="{% url show_player_data p.id %}">{{p.name}}</a></td>
+        <td><a href="{% url 'show_player_data' p.id %}">{{p.name}}</a></td>
         <td>{{p.current_division}}</td>
         <td>{{p.team}}</td>
-        <td><a title="Press here to make this the default player." href="{%url make_player_default p.id%}" class="btn-primary btn" role="button">Make default</a></td>
+        <td><a title="Press here to make this the default player." href="{%url 'make_player_default' p.id%}" class="btn-primary btn" role="button">Make default</a></td>
     </tr>
 {% endfor %}
 </table>

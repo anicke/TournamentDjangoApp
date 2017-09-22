@@ -1,4 +1,5 @@
 *.sh
 .idea/*
-*/*.pyc
+**/*.pyc
 */*/*.pyc
+sportApp/migrations/

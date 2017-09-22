@@ -35,6 +35,7 @@ class RegisterPlayerForm(forms.ModelForm):
 class NewTournamentForm(forms.ModelForm):
     class Meta:
         model = Tournament
+        fields = '__all__'
 
 
 class LogInForm(forms.Form):
@@ -60,4 +61,7 @@ class DivisionSelectForm(forms.Form):
                                     empty_label="Select League")
 
     textfile = forms.FileField(label='Select a file')
+
+    class Meta:
+        fields = '__all__'
 

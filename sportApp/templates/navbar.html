@@ -15,7 +15,7 @@
           {% else%}
           <li>
           {% endif %}
-          <a href="{% url home %}">Home</a></li>
+          <a href="{% url 'home' %}">Home</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-left">
@@ -24,7 +24,7 @@
           {% else%}
           <li>
           {% endif %}
-          <a href="{% url show_default_player %}">My status</a></li>
+          <a href="{% url 'show_default_player' %}">My status</a></li>
           </ul>
           <!---
           <ul class="nav navbar-nav navbar-left">
@@ -33,7 +33,7 @@
           {% else%}
           <li>
           {% endif %}
-          <a href="{% url rankings %}">Rankings</a></li>
+          <a href="{% url 'rankings' %}">Rankings</a></li>
           </ul>
           -->
 
@@ -43,7 +43,7 @@
           {% else%}
           <li>
           {% endif %}
-          <a href="{% url active_players %}">Active Players</a></li>
+          <a href="{% url 'active_players' %}">Active Players</a></li>
 
           <ul class="nav navbar-nav navbar-left">
           {% if "tournaments" in active %}
@@ -51,7 +51,7 @@
           {% else%}
           <li>
           {% endif %}
-          <a href="{% url tournaments %}">Tournaments</a></li>
+          <a href="{% url 'tournaments' %}">Tournaments</a></li>
           </ul>
 
           {% if user.is_authenticated %}
@@ -65,7 +65,7 @@
               {% else%}
               <li>
               {% endif %}
-              <a href="{% url register_player %}">Register</a></li>
+              <a href="{% url 'register_player' %}">Register</a></li>
               </ul>
 
               <ul class="nav navbar-nav navbar-left">
@@ -74,7 +74,7 @@
               {% else%}
               <li>
               {% endif %}
-              <a href="{% url new_tournament %}">New Tournament</a></li>
+              <a href="{% url 'new_tournament' %}">New Tournament</a></li>
               </ul>
 
               <ul class="nav navbar-nav navbar-left">
@@ -83,7 +83,7 @@
               {% else%}
               <li>
               {% endif %}
-              <a href="{% url upload_player_list %}">Upload players</a></li>
+              <a href="{% url 'upload_player_list' %}">Upload players</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-left">
               {% if "randomize" in active %}
@@ -91,14 +91,14 @@
               {% else%}
               <li>
               {% endif %}
-              <a href="{% url randomize_players %}">Randomize players</a></li>
+              <a href="{% url 'randomize_players' %}">Randomize players</a></li>
               </ul>
           {% endif %}
         <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
-            <li> <a href="{% url log_out %}">Logged in as: {{user.username}} (Log out)</a></li>
+            <li> <a href="{% url 'log_out' %}">Logged in as: {{user.username}} (Log out)</a></li>
             {% else%}
-            <li><a href="{%url log_in %}">Log in</a></li>
+            <li><a href="{%url 'log_in' %}">Log in</a></li>
             {% endif %}
         </ul>
         </div><!-- /.navbar-collapse -->

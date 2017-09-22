@@ -1,5 +1,6 @@
 import logging
 import datetime
+import django
 from django.db import models
 from django.conf import settings
 
@@ -101,7 +102,7 @@ class Game(models.Model):
     walk_over = models.BooleanField(default=False, help_text="Since WO per player added this should probably not be used.")
     wo_home = models.BooleanField(default=False, help_text="Set this to True if home player is WO. Both players can be WO and then both will have a -5 score.")
     wo_away = models.BooleanField(default=False, help_text="Set this to True if home player is WO")
-    date = models.DateField(default=datetime.datetime.now(), blank=True)
+    date = models.DateField(default=django.utils.timezone.now, blank=True)
     game_description = models.CharField(max_length=30, blank=True, null=True, default="")
     objects = GameManager()
 
@@ -200,8 +201,8 @@ class Tournament(models.Model):
                                unique=False, blank=True, null=True, default=None)
     name = models.CharField(max_length=40, unique=True)
     active = models.BooleanField(default=True)
-    games = models.ManyToManyField(Game, blank=True, null=True)
-    start_date = models.DateField(blank=True, default=datetime.datetime.now())
+    games = models.ManyToManyField(Game, blank=True)
+    start_date = models.DateField(blank=True, default=django.utils.timezone.now)
     end_date = models.DateField(blank=True, default=datetime.datetime.now() + datetime.timedelta(days=30))
 
     def __unicode__(self):
