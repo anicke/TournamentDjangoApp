@@ -3,7 +3,7 @@ import logging
 import datetime
 from django.db.models import Q
 from sportApp.models import Tournament, Game, Player, Division
-from TableData import StandingsTable
+from sportApp.TableData import StandingsTable
 
 
 logger = logging.getLogger('ModelQueries')

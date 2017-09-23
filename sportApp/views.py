@@ -11,9 +11,9 @@ from django.core.urlresolvers import reverse
 from sportApp.forms import MatchEditForm, RegisterPlayerForm, NewTournamentForm, LogInForm, DivisionSelectForm
 from sportApp.forms import DivisionSelector
 from django.shortcuts import redirect, render, get_object_or_404
-import model_queries as mq
-import app_logic
-from GenerateGames import GenerateGames
+import sportApp.model_queries as mq
+import sportApp.app_logic
+from sportApp.GenerateGames import GenerateGames
 
 
 logging.basicConfig(format='%(name)s:%(levelname)s:%(lineno)s:%(message)s', level=logging.INFO)
@@ -37,7 +37,6 @@ def rankings(request):
 
 def show_tournament_data(request, tournament_id, division_id):
     if "name" in request.POST:
-        print request.POST
         name = request.POST.get("name", False)
         if name:
             return HttpResponseRedirect(reverse('show_tournament_data', args=[tournament_id, name]))
@@ -166,7 +165,7 @@ def generate_games(request, tournament_id):
 
 
 def show_default_player(request):
-    if request.COOKIES.has_key('default_player'):
+    if 'default_player' in request.COOKIES:
         response = redirect('show_player_data', request.COOKIES['default_player'])
         response['Location'] += '?default=1'.format()
         return response

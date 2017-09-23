@@ -7,7 +7,7 @@ SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 DEBUG = True
 
 # Change the settings in the LOCAL_SETTINGS file!
-from LOCAL_SETTINGS import *
+from .LOCAL_SETTINGS import *
 
 MANAGERS = ADMINS
 
