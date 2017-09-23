@@ -62,8 +62,8 @@ def get_todays_games_for_player(player_id):
 
 def get_game_progress(current_tournaments):
     results = []
-    for torunament in current_tournaments:
-        played_percentage = int(len(torunament.games.filter(played=True))*100/len(torunament.games.all()))
+    for tournament in current_tournaments:
+        played_percentage = int(len(tournament.games.filter(played=True))*100/len(tournament.games.all()))
         results.append(played_percentage)
     return results
 

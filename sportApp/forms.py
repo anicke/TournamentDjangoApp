@@ -29,7 +29,8 @@ class RegisterPlayerForm(forms.ModelForm):
 
     class Meta:
         model = Player
-        exclude = ['active']
+        exclude = [
+            'active', 'games_won', 'goals_against', 'games_draw', 'games_played', 'goals_made', 'games_lost']
 
 
 class NewTournamentForm(forms.ModelForm):
